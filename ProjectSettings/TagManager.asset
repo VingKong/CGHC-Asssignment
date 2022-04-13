@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1687308985
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MAP
+    uniqueID: 1396233017
+    locked: 0
+  - name: LevelComponent
+    uniqueID: 1776017539
+    locked: 0
+  - name: Collectables
+    uniqueID: 4243858525
+    locked: 0
+  - name: Player
+    uniqueID: 482471541
+    locked: 0
+  - name: UI
+    uniqueID: 759624305
     locked: 0
