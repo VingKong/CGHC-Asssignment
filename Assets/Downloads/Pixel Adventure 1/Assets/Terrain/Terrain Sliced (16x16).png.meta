@@ -616,13 +616,13 @@ TextureImporter:
     second: Terrain Sliced (16x16)_59
   - first:
       213: -3406550741011873913
-    second: Terrain Sliced (16x16)_60
+    second: Red_Up_Left
   - first:
       213: 1047224608060278570
-    second: Terrain Sliced (16x16)_61
+    second: Red_Up_Middle
   - first:
       213: -2935998901810895314
-    second: Terrain Sliced (16x16)_62
+    second: Red_Up_Right
   - first:
       213: -1520349868239849904
     second: Terrain Sliced (16x16)_63
@@ -673,13 +673,13 @@ TextureImporter:
     second: Terrain Sliced (16x16)_78
   - first:
       213: -1049226019396941020
-    second: Terrain Sliced (16x16)_79
+    second: Red_Middle_Left
   - first:
       213: -119081074771976983
-    second: Terrain Sliced (16x16)_80
+    second: Red_Midlle_Middle
   - first:
       213: -2389962291426223365
-    second: Terrain Sliced (16x16)_81
+    second: Red_Middle_Right
   - first:
       213: -4583147616382794264
     second: Terrain Sliced (16x16)_82
@@ -715,13 +715,13 @@ TextureImporter:
     second: Terrain Sliced (16x16)_92
   - first:
       213: 3913395052427078262
-    second: Terrain Sliced (16x16)_93
+    second: Red_Down_Left
   - first:
       213: 8683433444412030562
-    second: Terrain Sliced (16x16)_94
+    second: Red_Down_Middle
   - first:
       213: -4309571456439829745
-    second: Terrain Sliced (16x16)_95
+    second: Red_Down_Right
   - first:
       213: -6944131665939194213
     second: Terrain Sliced (16x16)_96
@@ -2239,7 +2239,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_60
+      name: Red_Up_Left
       rect:
         serializedVersion: 2
         x: 272
@@ -2260,7 +2260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_61
+      name: Red_Up_Middle
       rect:
         serializedVersion: 2
         x: 288
@@ -2281,7 +2281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_62
+      name: Red_Up_Right
       rect:
         serializedVersion: 2
         x: 304
@@ -2638,7 +2638,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_79
+      name: Red_Middle_Left
       rect:
         serializedVersion: 2
         x: 272
@@ -2659,7 +2659,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_80
+      name: Red_Midlle_Middle
       rect:
         serializedVersion: 2
         x: 288
@@ -2680,7 +2680,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_81
+      name: Red_Middle_Right
       rect:
         serializedVersion: 2
         x: 304
@@ -2932,7 +2932,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_93
+      name: Red_Down_Left
       rect:
         serializedVersion: 2
         x: 272
@@ -2953,7 +2953,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_94
+      name: Red_Down_Middle
       rect:
         serializedVersion: 2
         x: 288
@@ -2974,7 +2974,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain Sliced (16x16)_95
+      name: Red_Down_Right
       rect:
         serializedVersion: 2
         x: 304
