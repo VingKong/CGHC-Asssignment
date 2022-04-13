@@ -1357,6 +1357,8 @@ GameObject:
   - component: {fileID: 760363812}
   - component: {fileID: 760363811}
   - component: {fileID: 760363813}
+  - component: {fileID: 760363814}
+  - component: {fileID: 760363815}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1513,6 +1515,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 5
   maxJumps: 2
+--- !u!114 &760363814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760363806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408bb657b32fa7d40a9cf3057091e95b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallFactor: 0.5
+--- !u!95 &760363815
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760363806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63c62c2b7140a054abb7515edafa07cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1057017432
 GameObject:
   m_ObjectHideFlags: 0

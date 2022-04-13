@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private float _internalFaceDirection = 1f;
     private float _faceDirection;
+    private float _wallFallMultiplier;
 
     private void Start()
     {
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour
 
         SetRayOrigins();
         GetFaceDirection();
+        RotateModel();
 
         if (FacingRight)
         {
@@ -273,6 +275,16 @@ public class PlayerController : MonoBehaviour
         }
 
         _force.y += _currentGravity * Time.deltaTime;
+
+        if (_wallFallMultiplier != 0)
+        {
+            _force.y *= _wallFallMultiplier;
+        }
+    }
+
+    public void SetWallClingMultiplier(float fallM)
+    {
+        _wallFallMultiplier = fallM;
     }
 
     #endregion
@@ -297,6 +309,19 @@ public class PlayerController : MonoBehaviour
 
         _internalFaceDirection = _faceDirection;
     }
+
+    private void RotateModel()
+    {
+        if (FacingRight)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
 
     #endregion
 
