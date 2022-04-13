@@ -24,4 +24,9 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
+    public void SpawnPlayer(Transform newPosition)
+    {
+        transform.position = newPosition.position;
+    }
+
 }
