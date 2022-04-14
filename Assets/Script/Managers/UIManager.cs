@@ -1,11 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     [Header("Settings")]
     [SerializeField] private GameObject[] playerLifes;
+
+    [Header("Coins")]
+    [SerializeField] private TextMeshProUGUI coinTMP;
+
+    private void Update()
+    {
+        UpdateCoins();
+    }
+
+    // Updates the coins
+    private void UpdateCoins()
+    {
+        coinTMP.text = CoinManager.Instance.TotalCoins.ToString();
+    }
 
     // Updates the player lifes
     private void OnPlayerLifes(int currentLifes)
@@ -32,5 +49,4 @@ public class UIManager : MonoBehaviour
     {
         Health.OnLifesChanged -= OnPlayerLifes;
     }
-
 }
