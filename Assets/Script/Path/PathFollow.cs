@@ -5,9 +5,18 @@ using UnityEngine;
 
 public class PathFollow : MonoBehaviour
 {
+    public enum MoveDirections
+    {
+        LEFT, RIGHT
+    }
+
     [Header("Settings")]
     [SerializeField] private float moveSpeed = 6f;
     [SerializeField] private float minDistanceToPoint = 0.1f;
+
+    public float MoveSpeed => moveSpeed;
+
+    public MoveDirections Direction { get; set; }
 
     public List<Vector3> points = new List<Vector3>();  // Get the Point list
 
@@ -15,11 +24,13 @@ public class PathFollow : MonoBehaviour
     private bool _moved;
     private int _currentPoint = 0;
     private Vector3 _currentPosition;
+    private Vector3 _previousPosition;
 
     private void Start()
     {
         _playing = true;
 
+        _previousPosition = transform.position;
         _currentPosition = transform.position;
         transform.position = _currentPosition + points[0];
     }
@@ -46,7 +57,21 @@ public class PathFollow : MonoBehaviour
         float distanceToNextPoint = Vector3.Distance(_currentPosition + points[_currentPoint], transform.position);
         if (distanceToNextPoint < minDistanceToPoint)
         {
+            _previousPosition = transform.position;
             _currentPoint++;
+        }
+
+        // Define move direction
+        if (_previousPosition != Vector3.zero)
+        {
+            if (transform.position.x > _previousPosition.x)
+            {
+                Direction = MoveDirections.RIGHT;
+            }
+            else if (transform.position.x < _previousPosition.x)
+            {
+                Direction = MoveDirections.LEFT;
+            }
         }
 
         // If we are on the last point, reset our position to the first one

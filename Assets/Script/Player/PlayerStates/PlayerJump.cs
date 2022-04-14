@@ -91,4 +91,20 @@ public class PlayerJump : PlayerStates
                                                   && _playerController.Conditions.IsJumping
                                                   && !_playerController.Conditions.IsCollidingBelow);
     }
+
+    private void JumpResponse(float jump)
+    {
+        _playerController.SetVerticalForce(Mathf.Sqrt(2f * jump * Mathf.Abs(_playerController.Gravity)));
+    }
+
+    private void OnEnable()
+    {
+        Jumper.OnJump += JumpResponse;
+    }
+
+    private void OnDisable()
+    {
+        Jumper.OnJump -= JumpResponse;
+    }
+
 }

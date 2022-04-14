@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     // Return the conditions
     public PlayerConditions Conditions => _conditions;
 
+    public float Friction { get; set; }
+
     #endregion
 
 
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private BoxCollider2D _boxCollider2D;
     private PlayerConditions _conditions;
+    private MovingPlatform _movingPlatform;
 
     private Vector2 _boundsTopLeft;
     private Vector2 _boundsTopRight;
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         StartMovement();
 
+        EnterPlatformMovement();
         SetRayOrigins();
         GetFaceDirection();
         RotateModel();
@@ -102,6 +106,8 @@ public class PlayerController : MonoBehaviour
 
     private void CollisionBelow()
     {
+        Friction = 0f;
+
         if (_movePosition.y < -0.0001f)
         {
             _conditions.IsFalling = true;
@@ -139,6 +145,8 @@ public class PlayerController : MonoBehaviour
 
             if (hit)
             {
+                GameObject hitObject = hit.collider.gameObject;
+
                 if (_force.y > 0)
                 {
                     _movePosition.y = _force.y * Time.deltaTime;
@@ -156,6 +164,17 @@ public class PlayerController : MonoBehaviour
                 {
                     _movePosition.y = 0f;
                 }
+
+                if (hitObject.GetComponent<SpecialSurface>() != null)
+                {
+                    Friction = hitObject.GetComponent<SpecialSurface>().Friction;
+                }
+
+                if (hitObject.GetComponent<MovingPlatform>() != null)
+                {
+                    _movingPlatform = hitObject.GetComponent<MovingPlatform>();
+                }
+
             }
         }
     }
@@ -235,6 +254,29 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Moving Platform
+
+    private void EnterPlatformMovement()
+    {
+        if (_movingPlatform == null)
+        {
+            return;
+        }
+
+        if (_movingPlatform.CollidingWithPlayer)
+        {
+            if (_movingPlatform.MoveSpeed != 0)
+            {
+                Vector3 moveDirection = _movingPlatform.Direction == PathFollow.MoveDirections.RIGHT
+                    ? Vector3.right
+                    : Vector3.left;
+                transform.Translate(moveDirection * _movingPlatform.MoveSpeed * Time.deltaTime);
+            }
+        }
+    }
+
+    #endregion
+
     #region Movement
 
     // Clamp our force applied
@@ -262,6 +304,11 @@ public class PlayerController : MonoBehaviour
     public void SetVerticalForce(float yForce)
     {
         _force.y = yForce;
+    }
+
+    public void AddHorizontalMovement(float xForce)
+    {
+        _force.x += xForce;
     }
 
     // Calculate the gravity to apply

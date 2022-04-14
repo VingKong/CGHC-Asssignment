@@ -18,6 +18,13 @@ public class LevelManager : MonoBehaviour
         SpawnPlayer(playerPrefab);
     }
 
+    private void Start()
+    {
+        // Call Event
+        OnPlayerSpawn?.Invoke(_currentPlayer);
+    }
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -33,10 +40,6 @@ public class LevelManager : MonoBehaviour
         {
             _currentPlayer = Instantiate(player, levelStartPoint.position, Quaternion.identity).GetComponent<PlayerMotor>();
             _currentPlayer.GetComponent<Health>().ResetLife();
-
-            // Call Event
-            OnPlayerSpawn?.Invoke(_currentPlayer);
-
         }
     }
 
