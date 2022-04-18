@@ -9,17 +9,24 @@ public class Fireball : MonoBehaviour
 
     public Wand WandEquipped { get; set; }
 
+    // find the shooting direction
+    public Vector3 ShootDirection => _shootDirection;
+
+    public float Speed { get; set; }
+
+
     private Vector3 _shootDirection;
-
-    private void Start() 
-    {
-        _shootDirection = WandEquipped.WandController.PlayerController.FacingRight ? Vector3.right : Vector3.left;
-    }    
-
 
     private void Update() 
     {
         transform.Translate(_shootDirection  * speed * Time.deltaTime);
-    }    
+    }   
+
+    // set the shooting direction
+        public void SetDirection(Vector3 newDirection)
+    {
+        _shootDirection = newDirection;
+    }   
+ 
 
 }

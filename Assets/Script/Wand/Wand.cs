@@ -32,6 +32,7 @@ public class Wand : MonoBehaviour
 
         Fireball fireball = newProjectile.GetComponent<Fireball>();
         fireball.WandEquipped = this;
+        fireball.SetDirection(WandController.PlayerController.FacingRight ? Vector3.right : Vector3.left);
     }   
 
     
