@@ -7,11 +7,14 @@ public class WandController : MonoBehaviour
     [Header("Settings")] 
     [SerializeField] private Wand wand;
     [SerializeField] private Transform holder;
+
+    public PlayerController PlayerController { get; set; }
     
     private Wand _wandEquipped;
 
     private void Start()
     {        
+        PlayerController = GetComponent<PlayerController>();
         EquipWand(wand);
     }
 
@@ -35,6 +38,7 @@ public class WandController : MonoBehaviour
         if (_wandEquipped == null)
         {
             _wandEquipped = Instantiate(newWand, holder.position, Quaternion.identity);
+            _wandEquipped.WandController = this; 
             _wandEquipped.transform.SetParent(holder);
         }
     }

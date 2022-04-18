@@ -9,6 +9,8 @@ public class Wand : MonoBehaviour
     [SerializeField] private Fireball fireballPrefab;
     [SerializeField] private Transform firePoint;
 
+    public WandController WandController { get; set; }
+
     [Header("Gun Settings")]
     [SerializeField] private float msBetweenShots = 100;
 
@@ -21,6 +23,7 @@ public class Wand : MonoBehaviour
         {
             _nextShotTime = Time.time + msBetweenShots / 1000f;
             Fireball fireball = Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
+            fireball.WandEquipped = this;  
         }
     }    
 
