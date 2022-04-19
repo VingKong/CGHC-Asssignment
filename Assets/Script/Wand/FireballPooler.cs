@@ -27,6 +27,7 @@ public class FireballPooler : MonoBehaviour
 
         if (hit)
         {
+            _fireball.DisableProjectile();
             gameObject.SetActive(false);
         }
     }
