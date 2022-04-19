@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 2672862904909543422}
   - component: {fileID: 2672862904909543409}
   - component: {fileID: 2573150981500558736}
+  - component: {fileID: 1529146744106489452}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -265,3 +266,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wand: {fileID: 1075634557750631797, guid: a27f225c6ecfa4b6fb0138a8a1606e3a, type: 3}
   holder: {fileID: 223631261}
+  Mana: {fileID: 0}
+  Health: {fileID: 0}
+--- !u!114 &1529146744106489452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672862904909543367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb910eeb36051489f8a979e1451e4ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

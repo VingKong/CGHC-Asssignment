@@ -9,26 +9,36 @@ public class WandController : MonoBehaviour
     [SerializeField] private Transform holder;
 
     public PlayerController PlayerController { get; set; }
+    public Mana Mana;
+    public static float manaRemaining;
     
     private Wand _wandEquipped;
 
     private void Start()
     {        
         PlayerController = GetComponent<PlayerController>();
+        Mana = GetComponent<Mana>();
+
         EquipWand(wand);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        manaRemaining = Mana.manaAmount;
+        if (Input.GetMouseButtonDown(0) && manaRemaining >= 10)
         {
+          
             Fire();
         }
     }
 
+    
+
     // Fires Projectiles
     private void Fire()
     {
+       
+        Mana.UseMana();
         _wandEquipped.Fire();
     }
     

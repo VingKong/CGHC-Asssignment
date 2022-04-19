@@ -11,7 +11,7 @@ public class Wand : MonoBehaviour
 
     public WandController WandController { get; set; }
 
-    [Header("Gun Settings")]
+    [Header("Wand Settings")]
     [SerializeField] private float msBetweenShots = 100;
 
     private float _nextShotTime;   
