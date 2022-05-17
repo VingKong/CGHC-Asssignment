@@ -24,12 +24,20 @@ public class PlayerStates : MonoBehaviour
     // Override in order to create the state logic
     public virtual void ExecuteState()
     {
-
+        if (GameManager.Instance.GameState == GameManager.GameStates.LevelCompleted)
+        {
+            return;
+        }
     }
 
     // Gets the normal Input   
     public virtual void LocalInput()
     {
+        if (GameManager.Instance.GameState == GameManager.GameStates.LevelCompleted)
+        {
+            return;
+        }
+
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -46,5 +54,4 @@ public class PlayerStates : MonoBehaviour
     {
 
     }
-
 }

@@ -11,11 +11,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform levelStartPoint;
     [SerializeField] private GameObject playerPrefab;
 
+    [Header("Levels")]
+    [SerializeField] private int startingLevel = 0;
+    [SerializeField] private Level[] levels;
+
     private PlayerMotor _currentPlayer;
+    private int _nextLevel;
 
     private void Awake()
     {
-        SpawnPlayer(playerPrefab);
+        InitLevel(startingLevel);
+        SpawnPlayer(playerPrefab, levels[startingLevel].SpawnPoint);
     }
 
     private void Start()
@@ -23,7 +29,6 @@ public class LevelManager : MonoBehaviour
         // Call Event
         OnPlayerSpawn?.Invoke(_currentPlayer);
     }
-
 
     private void Update()
     {
@@ -33,12 +38,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void InitLevel(int levelIndex)
+    {
+        foreach (Level level in levels)
+        {
+            level.gameObject.SetActive(false);
+        }
+
+        levels[levelIndex].gameObject.SetActive(true);
+    }
+
     // Spawns our player in the spawnPoint   
-    private void SpawnPlayer(GameObject player)
+    private void SpawnPlayer(GameObject player, Transform spawnPoint)
     {
         if (player != null)
         {
-            _currentPlayer = Instantiate(player, levelStartPoint.position, Quaternion.identity).GetComponent<PlayerMotor>();
+            _currentPlayer = Instantiate(player, spawnPoint.position, Quaternion.identity).GetComponent<PlayerMotor>();
             _currentPlayer.GetComponent<Health>().ResetLife();
         }
     }
@@ -61,14 +76,31 @@ public class LevelManager : MonoBehaviour
         _currentPlayer.gameObject.SetActive(false);
     }
 
+    private void MovePlayerToStartPosition(Transform newSpawnPoint)
+    {
+        if (_currentPlayer != null)
+        {
+            _currentPlayer.transform.position = new Vector3(newSpawnPoint.position.x, newSpawnPoint.position.y, 0f);
+        }
+    }
+
+    private void LoadLevel()
+    {
+        GameManager.Instance.GameState = GameManager.GameStates.LevelLoaded;
+        _nextLevel = GameManager.Instance.CurrentLevelCompleted + 1;
+        InitLevel(_nextLevel);
+        MovePlayerToStartPosition(levels[_nextLevel].SpawnPoint);
+    }
+
     private void OnEnable()
     {
         Health.OnDeath += PlayerDeath;
+        GameManager.LoadNextLevel += LoadLevel;
     }
 
     private void OnDisable()
     {
         Health.OnDeath -= PlayerDeath;
+        GameManager.LoadNextLevel -= LoadLevel;
     }
-
 }
