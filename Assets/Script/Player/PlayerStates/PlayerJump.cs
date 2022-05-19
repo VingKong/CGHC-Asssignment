@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlayerJump : PlayerStates
 {
@@ -55,6 +57,7 @@ public class PlayerJump : PlayerStates
         float jumpForce = Mathf.Sqrt(jumpHeight * 2f * Mathf.Abs(_playerController.Gravity));
         _playerController.SetVerticalForce(jumpForce);
         _playerController.Conditions.IsJumping = true;
+        SoundManager.Instance.PlaySound(AudioLibrary.Instance.JumpClip);
     }
 
     private bool CanJump()
@@ -78,18 +81,21 @@ public class PlayerJump : PlayerStates
         _animator.SetBool(_jumpAnimatorParameter, _playerController.Conditions.IsJumping
                                                   && !_playerController.Conditions.IsCollidingBelow
                                                   && JumpsLeft > 0
-                                                  && !_playerController.Conditions.IsFalling);
+                                                  && !_playerController.Conditions.IsFalling
+                                                  && !_playerController.Conditions.IsJetpacking);
 
         // Double jump
         _animator.SetBool(_doubleJumpParameter, _playerController.Conditions.IsJumping
                                                   && !_playerController.Conditions.IsCollidingBelow
                                                   && JumpsLeft == 0
-                                                  && !_playerController.Conditions.IsFalling);
+                                                  && !_playerController.Conditions.IsFalling
+                                                  && !_playerController.Conditions.IsJetpacking);
 
         // Fall
         _animator.SetBool(_fallAnimatorParameter, _playerController.Conditions.IsFalling
                                                   && _playerController.Conditions.IsJumping
-                                                  && !_playerController.Conditions.IsCollidingBelow);
+                                                  && !_playerController.Conditions.IsCollidingBelow
+                                                  && !_playerController.Conditions.IsJetpacking);
     }
 
     private void JumpResponse(float jump)
@@ -106,5 +112,4 @@ public class PlayerJump : PlayerStates
     {
         Jumper.OnJump -= JumpResponse;
     }
-
 }

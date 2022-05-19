@@ -15,7 +15,6 @@ public class Collectable : MonoBehaviour
         _collider2D = GetComponent<Collider2D>();
     }
 
-
     // Contains the logic of the colletable 
     private void CollectLogic()
     {
@@ -24,6 +23,8 @@ public class Collectable : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlaySound(AudioLibrary.Instance.CollectableClip);
+
         Collect();
         DisableCollectable();
     }
@@ -31,7 +32,7 @@ public class Collectable : MonoBehaviour
     // Override to add custom colletable behaviour
     protected virtual void Collect()
     {
-        //Debug.Log("This is working!!!");
+
     }
 
     // Disable the spriteRenderer and collider of the Collectable
@@ -60,5 +61,4 @@ public class Collectable : MonoBehaviour
     {
         _playerMotor = null;
     }
-
 }
