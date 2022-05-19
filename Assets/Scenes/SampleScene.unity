@@ -1632,7 +1632,7 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: 8d8935a3c2eb53645b9e21320af12cc6, type: 3}
   playerDeadClip: {fileID: 8300000, guid: 153009b936bd3f545be9e2b9914cf4c9, type: 3}
   projectileClip: {fileID: 8300000, guid: 825139fffb6dc45498447890270403ed, type: 3}
-  projectileCollisionClip: {fileID: 8300000, guid: 877514f88a0e45f46801c3d2cb55beed, type: 3}
+  projectileCollisionClip: {fileID: 8300000, guid: a02826e71d9cd024bbe5403adba6477a, type: 3}
 --- !u!114 &1125976595
 MonoBehaviour:
   m_ObjectHideFlags: 0
