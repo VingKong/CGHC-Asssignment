@@ -19,6 +19,8 @@ public class Health : MonoBehaviour
     private int _maxLifes;
     private int _currentLifes;
 
+    private Boolean godMode = false;
+
     private void Awake()
     {
         _maxLifes = lifes;
@@ -35,6 +37,10 @@ public class Health : MonoBehaviour
         {
             LoseLife();
         }
+         if (Input.GetKeyDown(KeyCode.K))
+        {
+            godMode = !godMode;
+        }
     }
 
     public void AddLife()
@@ -50,7 +56,8 @@ public class Health : MonoBehaviour
 
     public void LoseLife()
     {
-        _currentLifes -= 1;
+        if (!godMode)
+        {_currentLifes -= 1;
         if (_currentLifes <= 0)
         {
             _currentLifes = 0;
@@ -59,14 +66,17 @@ public class Health : MonoBehaviour
         }
 
         UpdateLifesUI();
+        }
     }
 
     public void KillPlayer()
     {
-        _currentLifes = 0;
+        if (!godMode)
+        {_currentLifes = 0;
         SoundManager.Instance.PlaySound(AudioLibrary.Instance.PlayerDeadClip);
         UpdateLifesUI();
         OnDeath?.Invoke(gameObject.GetComponent<PlayerMotor>());
+        }
     }
 
     public void ResetLife()
