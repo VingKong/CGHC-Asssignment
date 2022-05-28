@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectilePooler : MonoBehaviour
-{    
+{
+    // Event raised when colliding
+    public static Action<Collider2D> OnProjectileCollision;
+
     [Header("Settings")] 
     [SerializeField] private LayerMask collideWith;
 
@@ -27,6 +31,7 @@ public class ProjectilePooler : MonoBehaviour
 
         if (hit)
         {
+            OnProjectileCollision?.Invoke(hit.collider);
             _projectile.DisableProjectile();
             gameObject.SetActive(false);
         }

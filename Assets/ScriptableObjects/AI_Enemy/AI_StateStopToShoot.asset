@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcf9009cf578d404e8992c70cdd7edd1, type: 3}
-  m_Name: AI_StateFollowPath
+  m_Name: AI_StateStopToShoot
   m_EditorClassIdentifier: 
   Actions:
-  - {fileID: 11400000, guid: db8d3a0258916cd47b9feacc78ea430b, type: 2}
-  - {fileID: 11400000, guid: 8fb5ce52894507b429f512d4c69bea6f, type: 2}
+  - {fileID: 11400000, guid: 44390e84508fc2044bf67243523bce53, type: 2}
+  - {fileID: 11400000, guid: 002ef3fec35a8b9489b080a7948fa5a9, type: 2}
   Transitions:
   - Decision: {fileID: 11400000, guid: 14cecaeec9ac3ba4d9c163c7b6a59839, type: 2}
-    TrueState: {fileID: 11400000, guid: 7cdc7cf0afeb2f744af4af517f0f55e9, type: 2}
-    FalseState: {fileID: 11400000, guid: c467895fcbca57c4c98b186aa0d0e9b7, type: 2}
+    TrueState: {fileID: 11400000, guid: c467895fcbca57c4c98b186aa0d0e9b7, type: 2}
+    FalseState: {fileID: 11400000, guid: 15ec9e316a767ce4b816901ab51dbb37, type: 2}
