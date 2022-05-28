@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 2511531833724778679}
   - component: {fileID: 3391419428632388802}
   - component: {fileID: 276090878273505917}
+  - component: {fileID: 5636867561907333212}
+  - component: {fileID: 3194264955626445924}
+  - component: {fileID: 1590263442733964379}
+  - component: {fileID: 1830416944837169709}
   m_Layer: 10
   m_Name: AI_Enemy
   m_TagString: Untagged
@@ -116,9 +120,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98220d1a02173c42bfbb2edc8878aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
-  remainState: {fileID: 0}
+  currentState: {fileID: 11400000, guid: 15ec9e316a767ce4b816901ab51dbb37, type: 2}
+  remainState: {fileID: 11400000, guid: c467895fcbca57c4c98b186aa0d0e9b7, type: 2}
   firePoint: {fileID: 0}
+--- !u!114 &5636867561907333212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837420473303331626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8d7b771f0426447b40b6812d2952ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 6
+  minDistanceToPoint: 0.1
+  points:
+  - {x: 0, y: 0, z: 0}
+  - {x: 2, y: 0, z: 0}
+--- !u!114 &3194264955626445924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837420473303331626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d2a2663e3e51445968397d251abd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1590263442733964379
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837420473303331626}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.3333333, y: 3.4166667}
+    newSize: {x: 2.3333333, y: 3.4166667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3333333, y: 3.4166667}
+  m_EdgeRadius: 0
+--- !u!50 &1830416944837169709
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837420473303331626}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8767434715309222492
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +211,7 @@ GameObject:
   m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: a6d31e17314bd444daa17278d6c0a23e, type: 3}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

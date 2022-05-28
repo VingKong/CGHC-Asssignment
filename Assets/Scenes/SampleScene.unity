@@ -10565,6 +10565,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1057017434}
     m_Modifications:
+    - target: {fileID: 1256895604037798550, guid: a91d65fd83d9b784bbc3419a10eac28d, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803316637890758806, guid: a91d65fd83d9b784bbc3419a10eac28d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058838592621810144, guid: a91d65fd83d9b784bbc3419a10eac28d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5799744511001045892, guid: a91d65fd83d9b784bbc3419a10eac28d, type: 3}
       propertyPath: m_ColliderPaths.Array.size
       value: 1
@@ -11561,6 +11573,10 @@ PrefabInstance:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1287487518}
+    - target: {fileID: 6674213676690647223, guid: a91d65fd83d9b784bbc3419a10eac28d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91d65fd83d9b784bbc3419a10eac28d, type: 3}
 --- !u!4 &5799744511615299856 stripped

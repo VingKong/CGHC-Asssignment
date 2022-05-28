@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        ProjectilePooler.OnProjectileCollision += Collision;
+        FireballPooler.OnProjectileCollision += Collision;
     }
 
     private void OnDisable()
     {
-        ProjectilePooler.OnProjectileCollision -= Collision;
+        FireballPooler.OnProjectileCollision -= Collision;
     }
 }
